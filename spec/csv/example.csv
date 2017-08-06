@@ -1,0 +1,35 @@
+﻿Meeting ID,Host,Email,User Type,Start Time,End Time,Duration (hh:mm:ss),Participants,PSTN,VoIP,3rd Party Audio,Video,Screen Sharing,Recording,SIP
+000-000-000,Bart Simpson,bart-simpson@example.com,Pro,"Aug 01, 2017 04:53 PM",05:59 PM,01:05:51,15,false,true,false,true,true,true,false,
+
+Participant,Device,IP Address,Location,Network Type,Join Time,Leave Time,Version,Audio (Receiving) Bitrate,Audio (Sending) Bitrate,Audio (Receiving) Latency,Audio (Sending) Latency,Audio (Receiving) Jitter,Audio (Sending) Jitter,Audio (Receiving) Packet Loss-Avg(Max),Audio (Sending) Packet Loss-Avg(Max),Video (Receiving) Bitrate,Video (Sending) Bitrate,Video (Receiving) Latency,Video (Sending) Latency,Video (Receiving) Jitter,Video (Sending) Jitter,Video (Receiving) Packet Loss-Avg(Max),Video (Sending) Packet Loss-Avg(Max),Video (Receiving) Resolution,Video (Sending) Resolution,Video (Receiving) Frame Rate,Video (Sending) Frame Rate,Screen Sharing (Receiving) Bitrate,Screen Sharing (Sending) Bitrate,Screen Sharing (Receiving) Latency,Screen Sharing (Sending) Latency,Screen Sharing (Receiving) Jitter,Screen Sharing (Sending) Jitter,Screen Sharing (Receiving) Packet Loss-Avg(Max),Screen Sharing (Sending) Packet Loss-Avg(Max),Screen Sharing (Receiving) Resolution,Screen Sharing (Sending) Resolution,Screen Sharing (Receiving) Frame Rate,Screen Sharing (Sending) Frame Rate,Zoom Min Cpu Usage,Zoom Avg Cpu Usage,Zoom Max Cpu Usage,System Max Cpu Usage,
+SpongeBob,Windows,192.168.1.243,Palatine (US ),Wifi,04:53 PM,05:02 PM,4.0.36525.0619,38 kbps,-,35 ms,-,24 ms,-,-(-),-(-),-,-,36 ms,-,29 ms,-,-(-),-(-),-,-,-,-,-,-,-,-,-,-,-(-),-(-),-,-,-,-,0 %,0 %,2 %,23 %
+
+Betty Boop,Windows,192.168.10.25,Washington (US ),Wifi,04:54 PM,05:59 PM,4.0.36525.0619,82 kbps,-,10 ms,-,38 ms,-,-(-),-(-),-,-,12 ms,-,2 ms,-,-(-),-(-),-,-,-,-,139 kbps,139 kbps,12 ms,12 ms,30 ms,30 ms,-(-),-(-),2560*1440,2560*1440,14 fps,14 fps,7 %,11 %,17 %,28 %
+
+sundancekid,Windows,192.168.100.71,Washington (US ),Wifi,04:56 PM,05:59 PM,4.0.29656.0413,73 kbps,43 kbps,20 ms,25 ms,57 ms,13 ms,0.01 %(0.03 %),-(-),-,-,22 ms,-,11 ms,-,-(-),-(-),-,-,-,-,144 kbps,144 kbps,20 ms,20 ms,51 ms,51 ms,-(-),-(-),2560*1440,2560*1440,15 fps,15 fps,10 %,22 %,32 %,73 %
+
+archer,Mac,192.168.241.19,Milpitas (US ),Wifi,05:00 PM,05:00 PM,3.5.64836.0908,-,-,-,-,-,-,-(-),-(-),-,-,-,-,-,-,-(-),-(-),-,-,-,-,-,-,-,-,-,-,-(-),-(-),-,-,-,-,2 %,5 %,14 %,25 %
+
+James Kirk,Mac,192.168.80.111,Wexford (US ),Wired,05:00 PM,05:59 PM,4.0.38982.0714,81 kbps,30 kbps,19 ms,23 ms,7 ms,10 ms,-(-),-(-),-,-,20 ms,-,8 ms,-,-(-),-(-),-,-,-,-,147 kbps,147 kbps,19 ms,19 ms,7 ms,7 ms,-(-),-(-),2560*1440,2560*1440,15 fps,15 fps,6 %,11 %,16 %,65 %
+
+Bart Simpson,Mac,192.168.211.12,Seattle (US ),Wifi,05:01 PM,05:59 PM,4.0.36452.0616,37 kbps,60 kbps,97 ms,101 ms,20 ms,19 ms,-(-),0.13 %(0.42 %),-,-,-,-,-,-,-(-),-(-),-,-,-,-,-,-,-,-,-,-,-(-),-(-),-,-,-,-,5 %,7 %,10 %,28 %
+
+batman,Windows,192.168.1.93,Gotham (US ),Wifi,05:01 PM,05:59 PM,4.0.36525.0619,77 kbps,11 kbps,93 ms,89 ms,29 ms,8 ms,0.27 %(0.91 %),2.16 %(3.1 %),-,-,80 ms,-,13 ms,-,-(-),-(-),-,-,-,-,135 kbps,135 kbps,87 ms,87 ms,26 ms,26 ms,-(-),-(-),2560*1440,2560*1440,16 fps,16 fps,0 %,1 %,2 %,5 %
+
+MinnieM,Windows,192.168.177.3,San Carlos (US ),Wifi,05:02 PM,05:59 PM,4.0.29656.0413,84 kbps,13 kbps,320 ms,196 ms,103 ms,79 ms,3.02 %(8.6 %),0.53 %(0.3 %),-,-,110 ms,-,13 ms,-,-(-),-(-),-,-,-,-,138 kbps,138 kbps,322 ms,322 ms,130 ms,130 ms,-(-),-(-),2560*1440,2560*1440,7 fps,7 fps,12 %,17 %,23 %,73 %
+
+archer,Mac,192.168.241.19,Milpitas (US ),Wifi,05:02 PM,05:59 PM,3.5.64836.0908,79 kbps,-,77 ms,-,8 ms,-,0.15 %(0.65 %),-(-),-,-,77 ms,-,8 ms,-,-(-),-(-),-,-,-,-,155 kbps,155 kbps,78 ms,78 ms,9 ms,9 ms,-(-),-(-),2560*1440,2560*1440,16 fps,16 fps,4 %,8 %,11 %,23 %
+
+vader,Windows,192.168.99.199,Philadelphia (US ),Wifi,05:03 PM,05:28 PM,4.0.22258.0125,82 kbps,32 kbps,13 ms,18 ms,13 ms,10 ms,2.54 %(9.59 %),-(-),-,-,-,-,-,-,-(-),-(-),-,-,-,-,199 kbps,199 kbps,15 ms,15 ms,18 ms,18 ms,-(-),-(-),2560*1440,2560*1440,15 fps,15 fps,6 %,11 %,18 %,49 %
+
+rick sanchez,Windows,192.168.132.40,Santa Clara (US ),Wifi,05:04 PM,05:59 PM,4.0.29656.0413,84 kbps,19 kbps,121 ms,109 ms,47 ms,19 ms,1.79 %(7.32 %),3.06 %(5.61 %),-,-,82 ms,-,17 ms,-,-(-),-(-),-,-,-,-,160 kbps,160 kbps,112 ms,112 ms,64 ms,64 ms,-(-),-(-),2560*1440,2560*1440,16 fps,16 fps,12 %,20 %,28 %,41 %
+
+Bill Adama,Mac,192.168.88.201,San Pablo (US ),Wifi,05:05 PM,05:18 PM,4.0.29656.0413,75 kbps,88.3 kbps,112 ms,88 ms,33 ms,12 ms,3.63 %(9.18 %),-(-),-,-,86 ms,-,18 ms,-,1.8 %(5.4 %),-(-),-,-,-,-,189 kbps,189 kbps,117 ms,117 ms,95 ms,95 ms,-(-),-(-),2560*1440,2560*1440,14 fps,14 fps,2 %,5 %,8 %,21 %
+
+SpongeBob,Windows,192.168.1.243,Palatine (US ),Wifi,05:05 PM,05:58 PM,4.0.36525.0619,82 kbps,33 kbps,34 ms,49 ms,32 ms,14 ms,0.72 %(2.87 %),-(-),-,-,37 ms,-,51 ms,-,-(-),-(-),-,-,-,-,150 kbps,150 kbps,36 ms,36 ms,41 ms,41 ms,-(-),-(-),2560*1440,2560*1440,16 fps,16 fps,6 %,11 %,16 %,26 %
+
+smurfette,Windows,192.168.23.169,Alexandria (US ),Wired,05:07 PM,05:59 PM,4.0.38982.0714,88 kbps,-,11 ms,-,10 ms,-,-(-),-(-),-,-,14 ms,-,7 ms,-,-(-),-(-),-,-,-,-,147 kbps,147 kbps,11 ms,11 ms,9 ms,9 ms,-(-),-(-),2560*1440,2560*1440,16 fps,16 fps,9 %,14 %,20 %,32 %
+
+Darth# Vader iPhone G5MG,iOS,192.168.99.199,Philadelphia (US ),Wifi,05:26 PM,05:59 PM,4.0.39517.0718,91 kbps,-,361 ms,-,161 ms,-,10.66 %(19.37 %),-(-),-,-,103 ms,-,49 ms,-,0.02 %(0.2 %),-(-),-,-,-,-,69 kbps,69 kbps,255 ms,255 ms,195 ms,195 ms,-(-),-(-),2560*1440,2560*1440,3 fps,3 fps,10 %,16 %,24 %,47 %
+
+archer,Mac,192.168.241.19,Milpitas (US ),Wifi,06:00 AM,06:03 AM,3.5.64836.0908,79 kbps,-,77 ms,-,8 ms,-,0.15 %(0.65 %),-(-),-,-,77 ms,-,9 ms,-,-(-),-(-),-,-,-,-,155 kbps,155 kbps,78 ms,78 ms,11 ms,9 ms,-(-),-(-),2560*1440,2560*1440,16 fps,19 fps,4 %,8 %,11 %,23 %

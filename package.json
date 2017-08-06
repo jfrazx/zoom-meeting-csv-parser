@@ -1,0 +1,49 @@
+{
+  "name": "zsv",
+  "version": "0.0.1",
+  "description": "Parse Zoom Meeting CSVs with Ease",
+  "main": "index.js",
+  "scripts": {
+    "commit": "git-cz",
+    "coverage:check": "istanbul check-coverage --statements 95 --functions 100 --lines 95 --branches 95",
+    "coverage:report": "codecov",
+    "coverage:test": "istanbul cover _mocha -- -R spec spec",
+    "precommit": "npm run coverage:test && npm run coverage:check",
+    "prepush": "npm run coverage:test",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post",
+    "test": "mocha -R spec ./spec/"
+  },
+  "devDependencies": {
+    "chai": "^4.1.0",
+    "codecov": "^2.2.0",
+    "commitizen": "^2.9.6",
+    "cz-conventional-changelog": "^2.0.0",
+    "eslint": "^4.3.0",
+    "husky": "^0.14.3",
+    "istanbul": "^0.4.5",
+    "mocha": "^3.5.0",
+    "semantic-release": "^6.3.6"
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-conventional-changelog"
+    }
+  },
+  "types": "index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jfrazx/zoom-meeting-csv-parser.git"
+  },
+  "keywords": [
+    "zoom",
+    "meeting",
+    "csv",
+    "parse"
+  ],
+  "author": "jfrazx",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jfrazx/zoom-meeting-csv-parser/issues"
+  },
+  "homepage": "https://github.com/jfrazx/zoom-meeting-csv-parser#readme"
+}

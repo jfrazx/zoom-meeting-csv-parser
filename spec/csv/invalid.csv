@@ -1,0 +1,2 @@
+Meeting ID,Host,Email,User Type,Start Time,End Time,Duration (hh:mm:ss),Participants,PSTN,VoIP,3rd Party Audio,Video,Screen Sharing,Recording,SIP
+000-000-000,Bart Simpson,bart-simpson@example.com,Pro,"Aug 01, 2017 04:53 PM",05:59 PM,01:05:51,15,false,true,false,true,true,true,false,
