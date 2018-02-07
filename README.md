@@ -23,7 +23,7 @@ const {
 } = require('./index');
 
 // transformations are optional, you may supply your own or none at all
-zoom('example.csv', deDupeByName, flatten)
+zoom('example.csv', deDupeByName, camelCase, flatten)
   .then(data => {
     const [hosts, participants] = data;
 
