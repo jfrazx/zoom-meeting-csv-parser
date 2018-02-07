@@ -5,5 +5,7 @@ coverage/
 thumbs.db
 *.csv
 *.log
+playground.js
+*.ts
 
 !spec/csv/*.csv

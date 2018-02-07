@@ -1,12 +1,25 @@
 /* eslint max-len: 0 */
 
-const { zsv: zoom, flatten, camelCaseFields, deDupeByIP, deDupeByName, group, minutesInMeeting } = require('../index');
+const {
+  zsv: zoom,
+  compact,
+  flatten,
+  camelCase,
+  deDupeByIP,
+  deDupeByName,
+  group,
+  minutesInMeeting,
+  pluck,
+  toArray,
+} = require('../index');
+
 const chai = require('chai');
 const { expect } = chai;
 const EXAMPLE = './spec/csv/example.csv';
 
-describe('Zoom Meeting CSV Parser', () => {
+/* eslint max-statements: 0 */
 
+describe('Zoom Meeting CSV Parser', () => {
   it('should return an array of arrays', done => {
     zoom(EXAMPLE)
       .then(data => {
@@ -23,23 +36,25 @@ describe('Zoom Meeting CSV Parser', () => {
   });
 
   it('should catch errors when the file does not exist', done => {
-    zoom('sample.csv')
-      .catch(error => {
-        expect(error.message).to.eq('ENOENT: no such file or directory, open \'sample.csv\'');
-        done();
-      });
+    zoom('sample.csv').catch(error => {
+      expect(error.message).to.eq(
+        "ENOENT: no such file or directory, open 'sample.csv'"
+      );
+      done();
+    });
   });
 
   it('should reject when passing an invalid csv', done => {
-    zoom('./spec/csv/invalid.csv')
-      .catch(error => {
-        expect(error.message).to.eq('No participants! Are you sure this is a Zoom Meeting CSV?');
-        done();
-      });
+    zoom('./spec/csv/invalid.csv').catch(error => {
+      expect(error.message).to.eq(
+        'No participants! Are you sure this is a Zoom Meeting CSV?'
+      );
+      done();
+    });
   });
 
   it('should have host objects', done => {
-     zoom(EXAMPLE)
+    zoom(EXAMPLE)
       .then(data => {
         const [hosts] = data;
         const [host] = hosts;
@@ -95,10 +110,13 @@ describe('Zoom Meeting CSV Parser', () => {
         // eslint-disable-next-line no-unused-vars
         const [_, participants] = data;
 
-        const participant = participants.find(p => Array.isArray(p.participant));
+        const participant = participants.find(p =>
+          Array.isArray(p.participant)
+        );
 
-
-        expect(participant.participant).to.be.an('array').with.length(2);
+        expect(participant.participant)
+          .to.be.an('array')
+          .with.length(2);
         expect(participant.audio__receiving_bitrate).to.be.an('array');
         expect(participant.video__receiving_jitter).to.be.an('array');
         expect(participant.screen_sharing__receiving_jitter).to.be.an('array');
@@ -117,7 +135,6 @@ describe('Zoom Meeting CSV Parser', () => {
         expect(host.duration).to.be.an('object');
         expect(host.duration.hh_mm_ss).to.eq('01:05:51');
 
-
         expect(archer.audio).to.be.an('object');
         expect(archer.audio.receiving_bitrate).to.be.a('string');
         expect(archer.video).to.be.an('object');
@@ -130,24 +147,24 @@ describe('Zoom Meeting CSV Parser', () => {
       .catch(done);
   });
 
-    it('should camel case all properties', done => {
-      zoom(EXAMPLE, camelCaseFields, 'this will get ignored')
-        .then(data => {
-          // eslint-disable-next-line no-unused-vars
-          const [_, participants] = data;
-          const archer = findArcher(participants);
+  it('should camel case all properties', done => {
+    zoom(EXAMPLE, camelCase, 'this will get ignored')
+      .then(data => {
+        // eslint-disable-next-line no-unused-vars
+        const [_, participants] = data;
+        const archer = findArcher(participants);
 
-          expect(archer.audioReceivingBitrate).to.be.a('string');
-          expect(archer.videoReceivingJitter).to.be.a('string');
-          expect(archer.screenSharingReceivingJitter).to.be.a('string');
+        expect(archer.audioReceivingBitrate).to.be.a('string');
+        expect(archer.videoReceivingJitter).to.be.a('string');
+        expect(archer.screenSharingReceivingJitter).to.be.a('string');
 
-          for (const field in archer) {
-            expect(field).not.to.match(/_[a-z]/g);
-          }
+        for (const field in archer) {
+          expect(field).not.to.match(/_[a-z]/g);
+        }
 
-          done();
-        })
-        .catch(done);
+        done();
+      })
+      .catch(done);
   });
 
   it('should calculate the minutes spent in the meeting', done => {
@@ -182,7 +199,7 @@ describe('Zoom Meeting CSV Parser', () => {
       .catch(done);
   });
 
-    it('should calculate minutes from deDuped results', done => {
+  it('should calculate minutes from deDuped results', done => {
     zoom(EXAMPLE, [deDupeByName, deDupeByIP, minutesInMeeting, flatten])
       .then(data => {
         // eslint-disable-next-line no-unused-vars
@@ -200,7 +217,11 @@ describe('Zoom Meeting CSV Parser', () => {
   });
 
   it('should deDupe by name and IP, group, flatten, calculate minutes in meeting and camel case fields', done => {
-    zoom(EXAMPLE, [deDupeByName, deDupeByIP, flatten, camelCaseFields, minutesInMeeting], group)
+    zoom(
+      EXAMPLE,
+      [group, deDupeByName, deDupeByIP, flatten, camelCase],
+      minutesInMeeting
+    )
       .then(data => {
         // eslint-disable-next-line no-unused-vars
         const [_, participants] = data;
@@ -221,10 +242,79 @@ describe('Zoom Meeting CSV Parser', () => {
       })
       .catch(done);
   });
+
+  it('should pluck participant keys', done => {
+    zoom(
+      EXAMPLE,
+      pluck('participant', 'ip_address', 'device', 'network_type', 'location')
+    )
+      .then(data => {
+        // eslint-disable-next-line no-unused-vars
+        const [_, participants] = data;
+
+        const participant = participants.pop();
+
+        expect(Object.keys(participant)).to.have.lengthOf(5);
+        expect(participant.screen_sharing).to.be.undefined;
+        expect(participant.participant).to.be.a.string;
+
+        done();
+      })
+      .catch(done);
+  });
+
+  it('should remove null and undefined fields', done => {
+    zoom(EXAMPLE, compact)
+      .then(data => {
+        // eslint-disable-next-line no-unused-vars
+        const [_, participants] = data;
+
+        participants.length = Math.round(participants.length / 2);
+
+        for (const participant of participants) {
+          for (field in participant) {
+            expect(participant[field]).to.not.be.undefined;
+            expect(participant[field]).to.not.be.null;
+          }
+        }
+
+        done();
+      })
+      .catch(done);
+  });
+
+  it('should create arrays of key value pairs', done => {
+    zoom(EXAMPLE, group, toArray)
+      .then(data => {
+        // eslint-disable-next-line no-unused-vars
+        const [_, participants] = data;
+
+        const participant = participants.pop();
+
+        expect(participant).to.be.an('array');
+
+        for (const pair of participant) {
+          expect(pair).to.be.an('array');
+
+          processNested(pair);
+        }
+
+        done();
+      })
+      .catch(done);
+  });
 });
 
+function processNested(values) {
+  for (const value of values) {
+    if (Array.isArray(value)) {
+      processNested(value);
+    } else {
+      expect(value).to.be.a('string');
+    }
+  }
+}
+
 function findArcher(participants) {
-  return participants.find(participant =>
-    participant.participant === 'archer'
-  );
+  return participants.find(participant => participant.participant === 'archer');
 }
