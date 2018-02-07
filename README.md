@@ -39,7 +39,7 @@ zoom('example.csv', deDupeByName, camelCase, flatten)
 
 ### Unaltered Meeting Participant
 
-```json
+```javascript
 {
   participant: "archer",
   device: "Mac",
@@ -103,7 +103,7 @@ zoom('meeting.csv', camelCase)
 
 Output:
 
-```json
+```javascript
 {
   participant: "archer",
   device: "Mac",
@@ -136,7 +136,7 @@ zoom('meeting.csv', deDupeByName)
 
 Output:
 
-```json
+```javascript
 {
   participant: "archer",
   device: "Mac",
@@ -160,7 +160,7 @@ zoom('meeting.csv', deDupeByIP)
 
 Output:
 
-```json
+```javascript
 {
   participant: ["archer", "Archer"],
   device: "Mac",
@@ -184,7 +184,7 @@ zoom('meeting.csv', deDupeByIP, flatten)
 
 Output:
 
-```json
+```javascript
 {
   participant: "archer",
   device: "Mac",
@@ -201,7 +201,7 @@ Output:
 
 Group creates objects from similar field names, such as:
 
-```json
+```javascript
 {
   screen_sharing__receiving_bitrate: "155 kbps",
   screen_sharing__sending_bitrate: "155 kbps"
@@ -215,7 +215,7 @@ zoom('meeting.csv', group)
 
 Output:
 
-```json
+```javascript
 {
   screen_sharing: {
     receiving_bitrate: "155 kbps",
@@ -247,7 +247,7 @@ zoom('meeting.csv', minutesInMeeting)
 
 Output:
 
-```json
+```javascript
 {
   participant: "archer",
   device: "Mac",
@@ -269,7 +269,7 @@ zoom('meeting.csv', pluck('participant', 'device', 'location', ['ip_address', 'n
 
 Output:
 
-```json
+```javascript
 {
   participant: "archer",
   ip_address: "192.168.241.19",
