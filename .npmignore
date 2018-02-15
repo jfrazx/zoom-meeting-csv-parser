@@ -1,6 +1,12 @@
 node_modules/
+coverage/
+spec/
+.editorconfig
 .eslintrc.js
 .DS_Store
+.gitignore
+.prettierrc
+travis.yml
 thumbs.db
 *.csv
 *.log

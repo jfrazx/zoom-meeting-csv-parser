@@ -16,6 +16,7 @@ const {
 const chai = require('chai');
 const { expect } = chai;
 const EXAMPLE = './spec/csv/example.csv';
+const WEBINAR = './spec/csv/webinar.csv';
 
 /* eslint max-statements: 0 */
 
@@ -264,7 +265,7 @@ describe('Zoom Meeting CSV Parser', () => {
   });
 
   it('should remove null and undefined fields', done => {
-    zoom(EXAMPLE, compact)
+    zoom(WEBINAR, compact)
       .then(data => {
         // eslint-disable-next-line no-unused-vars
         const [_, participants] = data;
@@ -298,6 +299,23 @@ describe('Zoom Meeting CSV Parser', () => {
 
           processNested(pair);
         }
+
+        done();
+      })
+      .catch(done);
+  });
+
+  it('should parse webinar csvs', done => {
+    zoom(WEBINAR, compact)
+      .then(data => {
+        // eslint-disable-next-line no-unused-vars
+        const [_, participants] = data;
+
+        participants.forEach(participant => {
+          const keys = Object.keys(participant);
+
+          expect(keys).to.have.length.gte(14);
+        });
 
         done();
       })

@@ -1,6 +1,6 @@
 ### Zoom Meeting CSV Parser
 
-A simple [Zoom](https://zoom.us/) meeting csv parser.
+A simple [Zoom](https://zoom.us/) meeting and webinar csv parser.
 
 (This software is considered alpha quality and is subject to change without notice)
 
@@ -20,7 +20,7 @@ const {
   minutesInMeeting,
   pluck,
   toArray,
-} = require('./index');
+} = require('zsv');
 
 // transformations are optional, you may supply your own or none at all
 zoom('example.csv', deDupeByName, camelCase, flatten)
@@ -359,7 +359,5 @@ zoom('meeting.csv').then(data => {
   const plucked = pluck('participant', 'location')(participants);
 });
 ```
-
-Parsing zoom webinar csv's mismatches fields after `network_type`.
 
 This is a work in progress...
