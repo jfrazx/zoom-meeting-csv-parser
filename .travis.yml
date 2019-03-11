@@ -5,8 +5,8 @@ cache:
 notifications:
   email: false
 node_js:
-  - '8'
-  - '7'
+  - '11'
+  - '10'
 install:
   - npm install
 before_script:
@@ -15,6 +15,7 @@ script:
   - npm run coverage:test
   - npm run coverage:check
   - npm run coverage:report
+  - npm run coverage:post
 after_success:
   - npm run semantic-release
 branches:

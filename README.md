@@ -1,10 +1,8 @@
-### Zoom Meeting CSV Parser
+# Zoom Meeting CSV Parser
 
 A simple [Zoom](https://zoom.us/) meeting and webinar csv parser.
 
-(This software is considered alpha quality and is subject to change without notice)
-
-### Basic Usage
+## Basic Usage
 
 ```javascript
 const {
@@ -23,18 +21,16 @@ const {
 } = require('zsv');
 
 // transformations are optional, you may supply your own or none at all
-zoom('example.csv', deDupeByName, camelCase, flatten)
-  .then(data => {
-    const [hosts, participants] = data;
+const [hosts, participants] = await zoom(
+  'example.csv',
+  deDupeByName,
+  camelCase,
+  flatten
+);
 
-    // Do stuff with your hosts and participants
-    console.log(hosts);
-    console.log(participants);
-  })
-  .catch(error => {
-    // Handle error
-    console.log(error.message);
-  });
+// Do stuff with your hosts and participants
+console.log(hosts);
+console.log(participants);
 ```
 
 ### Unaltered Meeting Participant
@@ -97,8 +93,7 @@ There are a number of included transformations that alter the structure of parti
 Transforms fields to camel case
 
 ```javascript
-zoom('meeting.csv', camelCase)
-  .then(...)
+await zoom('meeting.csv', camelCase);
 ```
 
 Output:
@@ -121,8 +116,7 @@ Output:
 Removes null and undefined values from webinar csv's
 
 ```javascript
-zoom('webinar.csv', compact)
-  .then(...)
+await zoom('webinar.csv', compact);
 ```
 
 #### deDupeByName
@@ -130,8 +124,7 @@ zoom('webinar.csv', compact)
 Merge participants based on name (participant). May contain arrays of values.
 
 ```javascript
-zoom('meeting.csv', deDupeByName)
-  .then(...)
+await zoom('meeting.csv', deDupeByName);
 ```
 
 Output:
@@ -154,8 +147,7 @@ Output:
 Merge participants based on IP. May contain arrays of values.
 
 ```javascript
-zoom('meeting.csv', deDupeByIP)
-  .then(...)
+await zoom('meeting.csv', deDupeByIP);
 ```
 
 Output:
@@ -178,8 +170,7 @@ Output:
 Flatten array values after deDuping.
 
 ```javascript
-zoom('meeting.csv', deDupeByIP, flatten)
-  .then(...)
+await zoom('meeting.csv', deDupeByIP, flatten);
 ```
 
 Output:
@@ -209,8 +200,7 @@ Group creates objects from similar field names, such as:
 ```
 
 ```javascript
-zoom('meeting.csv', group)
-  .then(...)
+await zoom('meeting.csv', group);
 ```
 
 Output:
@@ -241,8 +231,7 @@ Attempts to calculate participant time spent in the meeting.
 Adds new property `minutes_in_meeting` by default, or `minutesInMeeting` if `camelCase` transform has been utilized.
 
 ```javascript
-zoom('meeting.csv', minutesInMeeting)
-  .then(...)
+await zoom('meeting.csv', minutesInMeeting);
 ```
 
 Output:
@@ -263,8 +252,10 @@ Output:
 Pluck takes a list of field names to create a new object.
 
 ```javascript
-zoom('meeting.csv', pluck('participant', 'device', 'location', ['ip_address', 'network_type']))
-  .then(...)
+await zoom(
+  'meeting.csv',
+  pluck('participant', 'device', 'location', ['ip_address', 'network_type'])
+);
 ```
 
 Output:
@@ -347,17 +338,12 @@ function transform(field, value, participant) {
 }
 ```
 
-##### Caveats
+#### Caveats
 
 Pluck attempts to transform both host and participant objects.  
 If you plan to work with the host object it might behoove you to utilize `pluck` after you receive the data objects.
 
 ```javascript
-zoom('meeting.csv').then(data => {
-  const [hosts, participants] = data;
-
-  const plucked = pluck('participant', 'location')(participants);
-});
+const [hosts, participants] = await zoom('meeting.csv');
+const plucked = pluck('participant', 'location')(participants);
 ```
-
-This is a work in progress...
