@@ -18,12 +18,12 @@
   "devDependencies": {
     "chai": "^4.1.0",
     "codecov": "^3.0.0",
-    "commitizen": "^3.0.5",
-    "cz-conventional-changelog": "^2.1.0",
-    "eslint": "^5.13.0",
-    "husky": "^1.3.1",
+    "commitizen": "^4.0.3",
+    "cz-conventional-changelog": "^3.0.2",
+    "eslint": "^6.4.0",
+    "husky": "^3.0.5",
     "mocha": "^6.0.2",
-    "nyc": "^13.3.0",
+    "nyc": "^14.1.1",
     "semantic-release": "^15.13.3"
   },
   "config": {
@@ -46,5 +46,8 @@
   "bugs": {
     "url": "https://github.com/jfrazx/zoom-meeting-csv-parser/issues"
   },
-  "homepage": "https://github.com/jfrazx/zoom-meeting-csv-parser#readme"
+  "homepage": "https://github.com/jfrazx/zoom-meeting-csv-parser#readme",
+  "dependencies": {
+    "@status/defaults": "^1.2.1"
+  }
 }

@@ -334,7 +334,8 @@ function transform(field, value, participant) {
 
   participant[field] = `modified ${value}`;
 
-  // no return, directly manipulate passed objects
+  // return the modified participant
+  return participant;
 }
 ```
 
