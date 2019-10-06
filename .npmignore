@@ -4,7 +4,7 @@ spec/
 .nyc_output/
 
 .editorconfig
-.eslintrc.js
+.eslintrc
 .DS_Store
 .gitignore
 .prettierrc
