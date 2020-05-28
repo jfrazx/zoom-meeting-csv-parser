@@ -1,15 +1,15 @@
 /* eslint max-len: 0 */
 
 const {
-  zsv: zoom,
+  zoom,
   compact,
   flatten,
   camelCase,
   deDupeByIP,
   deDupeByName,
   group,
-  minutesInMeeting,
   pluck,
+  minutesInMeeting,
   toArray,
 } = require('../index');
 
@@ -26,6 +26,7 @@ describe('Zoom Meeting CSV Parser', () => {
     expect(data).to.be.an('array');
     expect(data[0]).to.be.an('array');
     expect(data[1]).to.be.an('array');
+    expect(data).to.have.lengthOf(2);
 
     data[0].forEach(object => expect(object).to.be.an('object'));
     data[1].forEach(object => expect(object).to.be.an('object'));

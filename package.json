@@ -5,27 +5,27 @@
   "main": "index.js",
   "scripts": {
     "commit": "git-cz",
-    "coverage:check": "nyc check-coverage --statements 95 --functions 100 --lines 95 --branches 95",
+    "coverage:check": "nyc check-coverage",
     "coverage:report": "nyc report --reporter=text-lcov > coverage.lcov",
     "coverage:post": "codecov",
-    "coverage:test": "nyc mocha -- -R spec spec",
+    "coverage:test": "nyc mocha",
     "precommit": "npm run coverage:test && npm run coverage:check",
     "prepush": "npm run coverage:test",
     "publish": "npx semantic-release",
     "nyc": "nyc",
     "semantic-release": "semantic-release",
-    "test": "mocha -R spec ./spec/"
+    "test": "mocha"
   },
   "devDependencies": {
     "chai": "^4.1.0",
     "codecov": "^3.0.0",
     "commitizen": "^4.0.3",
     "cz-conventional-changelog": "^3.0.2",
-    "eslint": "^6.4.0",
+    "eslint": "^7.1.0",
     "husky": "^4.2.1",
     "mocha": "^7.0.1",
     "nyc": "^15.0.0",
-    "semantic-release": "^17.0.2",
+    "semantic-release": "^17.0.8",
     "travis-deploy-once": "^5.0.11"
   },
   "config": {
@@ -41,7 +41,8 @@
     "zoom",
     "meeting",
     "csv",
-    "parse"
+    "parse",
+    "webinar"
   ],
   "author": "jfrazx",
   "license": "MIT",
@@ -51,5 +52,9 @@
   "homepage": "https://github.com/jfrazx/zoom-meeting-csv-parser#readme",
   "dependencies": {
     "@status/defaults": "^1.2.1"
+  },
+  "mocha": {
+    "spec": "spec/*.js",
+    "reporter": "spec"
   }
 }
