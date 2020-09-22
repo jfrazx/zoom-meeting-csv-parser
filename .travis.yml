@@ -13,6 +13,7 @@ node_js:
 before_script:
   - npm prune
 script:
+  - npm run build
   - npm run coverage:test
   - npm run coverage:check
   - npm run coverage:report
