@@ -5,7 +5,7 @@ A simple [Zoom](https://zoom.us/) meeting and webinar csv parser.
 ## Basic Usage
 
 ```javascript
-const {
+import {
   zoom,
 
   // transformations
@@ -18,15 +18,10 @@ const {
   minutesInMeeting,
   pluck,
   toArray,
-} = require('zsv');
+} from 'zsv';
 
 // transformations are optional, you may supply your own or none at all
-const [hosts, participants] = await zoom(
-  'example.csv',
-  deDupeByName,
-  camelCase,
-  flatten
-);
+const [hosts, participants] = await zoom('example.csv', deDupeByName, camelCase, flatten);
 
 // Do stuff with your hosts and participants
 console.log(hosts);
@@ -254,7 +249,7 @@ Pluck takes a list of field names to create a new object.
 ```javascript
 await zoom(
   'meeting.csv',
-  pluck('participant', 'device', 'location', ['ip_address', 'network_type'])
+  pluck('participant', 'device', 'location', ['ip_address', 'network_type']),
 );
 ```
 

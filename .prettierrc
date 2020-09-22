@@ -5,8 +5,10 @@
       "options": { "parser": "json" }
     }
   ],
-  "printWidth": 80,
+  "arrowParens": "always",
+  "endOfLine": "lf",
+  "printWidth": 90,
   "singleQuote": true,
   "bracketSpacing": true,
-  "trailingComma": "es5"
+  "trailingComma": "all"
 }

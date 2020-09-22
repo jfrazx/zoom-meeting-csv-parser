@@ -1,6 +1,7 @@
 node_modules/
 coverage/
 spec/
+src/
 .nyc_output/
 
 .editorconfig

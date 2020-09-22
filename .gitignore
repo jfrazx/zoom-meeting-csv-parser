@@ -1,12 +1,11 @@
 node_modules/
 coverage/
+dist/
 
 .DS_Store
 .nyc_output
 thumbs.db
 *.csv
 *.log
-playground.js
-*.ts
 
 !spec/csv/*.csv
