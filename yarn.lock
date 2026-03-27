@@ -1156,9 +1156,9 @@
   integrity sha512-9NET910DNaIPngYnLLPeg+Ogzqsi9uM4mSboU5y6p8S5DzMTVEsJZrawi+BoDNUVBa2DhJqQYUFvMDfgU062LQ==
 
 "@status/defaults@^1.2.1":
-  version "1.2.1"
-  resolved "https://registry.yarnpkg.com/@status/defaults/-/defaults-1.2.1.tgz#af0458785d48b540a1e0c8607840b3fcfb542b88"
-  integrity sha512-4GN8cI+RVgtzYQITEwHcHtCLb42v7X5SjpTuN9f2wteDeIGFnA0wgPVBx23iWXnec8tKLxaXdqqX8i8NqjNfqA==
+  version "1.7.0"
+  resolved "https://registry.yarnpkg.com/@status/defaults/-/defaults-1.7.0.tgz#73f57083f0c8a7f0bd76197812caad9b11b4c7c7"
+  integrity sha512-GXIkT1jHlCw+zXGGNfBLld4ZSCJ7RMd01ZkIg7d1iC2HXOz81FznPhMlIKZZXIXOU6IDIy9/EiBPg/k5SDU8+g==
 
 "@szmarczak/http-timer@^1.1.2":
   version "1.1.2"
